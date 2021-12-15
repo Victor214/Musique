@@ -1,0 +1,15 @@
+C:\Users\Victor\source\repos\Musique\Musique.Data\bin\Debug\netcoreapp3.1\Musique.Data.deps.json
+C:\Users\Victor\source\repos\Musique\Musique.Data\bin\Debug\netcoreapp3.1\Musique.Data.dll
+C:\Users\Victor\source\repos\Musique\Musique.Data\bin\Debug\netcoreapp3.1\Musique.Data.pdb
+C:\Users\Victor\source\repos\Musique\Musique.Data\bin\Debug\netcoreapp3.1\Musique.Core.dll
+C:\Users\Victor\source\repos\Musique\Musique.Data\bin\Debug\netcoreapp3.1\Musique.Core.pdb
+C:\Users\Victor\source\repos\Musique\Musique.Data\obj\Debug\netcoreapp3.1\Musique.Data.csproj.AssemblyReference.cache
+C:\Users\Victor\source\repos\Musique\Musique.Data\obj\Debug\netcoreapp3.1\Musique.Data.AssemblyInfoInputs.cache
+C:\Users\Victor\source\repos\Musique\Musique.Data\obj\Debug\netcoreapp3.1\Musique.Data.AssemblyInfo.cs
+C:\Users\Victor\source\repos\Musique\Musique.Data\obj\Debug\netcoreapp3.1\Musique.Data.csproj.CoreCompileInputs.cache
+C:\Users\Victor\source\repos\Musique\Musique.Data\obj\Debug\netcoreapp3.1\Musique.Data.csproj.CopyComplete
+C:\Users\Victor\source\repos\Musique\Musique.Data\obj\Debug\netcoreapp3.1\Musique.Data.dll
+C:\Users\Victor\source\repos\Musique\Musique.Data\obj\Debug\netcoreapp3.1\Musique.Data.pdb
+C:\Users\Victor\source\repos\Musique\Musique.Data\bin\Debug\netcoreapp3.1\Musique.Data.runtimeconfig.json
+C:\Users\Victor\source\repos\Musique\Musique.Data\bin\Debug\netcoreapp3.1\Musique.Data.runtimeconfig.dev.json
+C:\Users\Victor\source\repos\Musique\Musique.Data\obj\Debug\netcoreapp3.1\Musique.Data.genruntimeconfig.cache

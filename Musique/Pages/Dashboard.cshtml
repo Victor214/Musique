@@ -1,0 +1,35 @@
+﻿@page
+@model Musique.Pages.DashboardModel
+@{
+}
+
+@if (Model.SuccessLogin)
+{
+    <!-- Login Snackbar -->
+    <aside class="mdc-snackbar">
+        <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+            <div class="mdc-snackbar__label" aria-atomic="false">
+                You've logged in successfully!
+            </div>
+            <div class="mdc-snackbar__actions" aria-atomic="true">
+                <button type="button" class="mdc-button mdc-snackbar__action">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Close</span>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Snackbar Instantiation and Popping up -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("ready!");
+            const MDCSnackbar = mdc.snackbar.MDCSnackbar;
+            const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
+            snackbar.open();
+        });
+    </script>
+}
+
+<p>Dashboard page</p>
+

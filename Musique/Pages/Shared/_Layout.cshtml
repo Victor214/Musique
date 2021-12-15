@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Musique</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- Custom -->
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/node_modules/material-components-web/dist/material-components-web.min.css" rel="stylesheet" />
+    <script src="~/node_modules/material-components-web/dist/material-components-web.min.js"></script>
+
+    <!-- Google Login -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="720345832799-on0gj72ndiq41ur05tfb0akp12lqjog2.apps.googleusercontent.com">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!-- Material Design Lite relies on this -->
+
+    @RenderSection("Style", required: false)
+    <style>
+        body {
+            height: 100vh;
+            padding: 0;
+        }
+
+        .top-bar {
+            --mdc-theme-primary: #212121;
+        }
+
+        .menu-tab-bar {
+            --mdc-theme-primary: #EEEEEE;
+            padding-top: 8px;
+        }
+
+        .google-name-section {
+            --mdc-theme-primary: #EEEEEE;
+            padding-top: 0px;
+        }
+
+        .music-icon {
+            margin-top: 5px;
+        }
+
+        .underlineless {
+        }
+
+            .underlineless:link {
+                text-decoration: none;
+            }
+
+            .underlineless:visited {
+                text-decoration: none;
+            }
+
+            .underlineless:hover {
+                text-decoration: none;
+            }
+
+            .underlineless:active {
+                text-decoration: none;
+            }
+
+        .msq-container-background {
+            background-color: #f2f2f2;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body class="mdc-typography">
+
+    <vc:navbar></vc:navbar>
+
+    <main class="mdc-top-app-bar--fixed-adjust msq-container-background">
+        <div class="container h-100">
+            @RenderBody()
+        </div>
+    </main>
+
+    <!-- Autoinit Header
+    <script type="text/javascript">
+        window.mdc.autoInit();
+    </script>
+     -->
+    <!-- Scripts -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Custom -->
+    <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

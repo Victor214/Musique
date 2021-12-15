@@ -1,0 +1,83 @@
+﻿@page
+@model Musique.Pages.LoginModel
+@{
+}
+
+<!--
+    // This page should only load if the user is logged out.
+-->
+
+@if (Model.LoginResult == -1)
+{
+    <!-- Login Failed Snackbar -->
+    <aside class="mdc-snackbar">
+        <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+            <div class="mdc-snackbar__label" aria-atomic="false">
+                Failed to log into google. Please try again later.
+            </div>
+            <div class="mdc-snackbar__actions" aria-atomic="true">
+                <button type="button" class="mdc-button mdc-snackbar__action">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Close</span>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Snackbar Instantiation and Popping up -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            signOut();
+            const MDCSnackbar = mdc.snackbar.MDCSnackbar;
+            const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
+            snackbar.open();
+        });
+    </script>
+}
+
+@section Scripts {
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            var id_token = googleUser.getAuthResponse().id_token;
+            console.log('ID Token: ' + id_token);
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+            document.getElementById('tokenForm_token').value = id_token;
+            document.getElementById('tokenForm').submit();
+        }
+    </script>
+}
+
+<div class="row h-100 justify-content-center pt-5">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="mdc-card msq-login-card mdc-elevation--z3">
+            <div class="mdc-card__primary-action demo-card__primary-action msq-login-card-content" tabindex="0">
+                <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/sheet.jpeg');"></div>
+                <div class="p-3">
+                    <div class="demo-card__primary">
+                        <h2 class="demo-card__title mdc-typography mdc-typography--headline6">Login</h2>
+                    </div>
+                    <div class="demo-card__secondary mdc-typography mdc-typography--body2">Login with your google account easily with a single click, without having to manually input credentials.</div>
+                    <br />
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4"></div>
+    <div>
+        <form method="post" id="tokenForm">
+            <input id="tokenForm_token" asp-for="idtoken" type="hidden" />
+        </form>
+    </div>
+</div>
+
+@section Style {
+    <style>
+    </style>
+}

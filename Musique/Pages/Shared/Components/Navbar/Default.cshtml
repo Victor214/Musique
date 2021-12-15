@@ -1,0 +1,130 @@
+﻿
+<!-- Header (TopAppBar) -->
+<header class="mdc-top-app-bar mdc-top-app-bar--fixed top-bar mdc-elevation--z5" data-mdc-auto-init="MDCTopAppBar">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <span class="mdc-top-app-bar__title">
+                <span class="material-icons music-icon">music_note</span>
+                Musique
+            </span>
+        </section>
+
+        <div class="row">
+            <div class="col">
+                <!-- Create new sections as needed-->
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end google-name-section">
+
+                </section>
+
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+                    <!-- Tab Bar inside a Top App Bar -->
+                    <div class="mdc-tab-bar" role="tablist">
+                        <div class="mdc-tab-scroller menu-tab-bar">
+                            <div class="mdc-tab-scroller__scroll-area">
+                                <div class="mdc-tab-scroller__scroll-content">
+                                    <!-- Google Account Name -->
+                                    <div class="mdc-tab mdc-tab--active underlineless" asp-page="/Index" role="tab" aria-selected="true" tabindex="0">
+                                        <!-- set it to --active depending on which page we are (likely will have to migrate this to a view component) -->
+                                        <span class="mdc-tab__content mdc-typography--caption">
+                                            <span class="mdc-tab__text-label">
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <div>Welcome, @User.Identity.Name</div>
+                                                }
+                                            </span>
+                                        </span>
+                                    </div>
+
+
+                                    @if (!User.Identity.IsAuthenticated)
+                                    {
+                                        <a class="mdc-tab mdc-tab--active underlineless" asp-page="/Index" role="tab" aria-selected="true" tabindex="1">
+                                            <!-- set it to --active depending on which page we are (likely will have to migrate this to a view component) -->
+                                            <span class="mdc-tab__content mdc-typography--caption">
+                                                <span class="mdc-tab__icon material-icons" aria-hidden="true">home</span>
+                                                <span class="mdc-tab__text-label">Home</span>
+                                            </span>
+                                            <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                            </span>
+                                            <span class="mdc-tab__ripple"></span>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="mdc-tab mdc-tab--active underlineless" asp-page="/Index" role="tab" aria-selected="true" tabindex="1">
+                                            <!-- set it to --active depending on which page we are (likely will have to migrate this to a view component) -->
+                                            <span class="mdc-tab__content mdc-typography--caption">
+                                                <span class="mdc-tab__icon material-icons" aria-hidden="true">dashboard</span>
+                                                <span class="mdc-tab__text-label">Dashboard</span>
+                                            </span>
+                                            <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                            </span>
+                                            <span class="mdc-tab__ripple"></span>
+                                        </a>
+                                    }
+
+                                    <!-- Login Button  -->
+                                    <!-- (Only shown for logged out users)  -->
+                                    @if (!User.Identity.IsAuthenticated)
+                                    {
+                                        <a class="mdc-tab mdc-tab--active underlineless" asp-page="/Login" role="tab" aria-selected="true" tabindex="2">
+                                            <span class="mdc-tab__content mdc-typography--caption">
+                                                <span class="mdc-tab__icon material-icons" aria-hidden="true">login</span>
+                                                <span class="mdc-tab__text-label">Login</span>
+                                            </span>
+                                            <span class="mdc-tab-indicator mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                            </span>
+                                            <span class="mdc-tab__ripple"></span>
+                                        </a>
+                                    }
+
+
+                                    <!-- Google Sign Out Button  -->
+                                    <!-- (Only shown for logged in users) -->
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <div class="g-signin2" hidden></div>
+                                        <a class="mdc-tab mdc-tab--active underlineless" onclick="signOut();" role="tab" aria-selected="true" tabindex="3">
+                                            <span class="mdc-tab__content mdc-typography--caption">
+                                                <span class="mdc-tab__icon material-icons" aria-hidden="true">logout</span>
+                                                <span class="mdc-tab__text-label">Logout</span>
+                                            </span>
+                                            <span class="mdc-tab-indicator mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                            </span>
+                                            <span class="mdc-tab__ripple"></span>
+                                        </a>
+                                        <form method="post" asp-page="Logout" id="logoutForm">
+                                            <input name="test" type="hidden" />
+                                        </form>
+                                        <script>
+                                            function signOut() {
+                                                var auth2 = gapi.auth2.getAuthInstance();
+                                                auth2.signOut().then(function () {
+                                                    // Redirect to logout page
+                                                    console.log('User signed out.');
+                                                    document.getElementById('logoutForm').submit();
+                                                });
+                                            }
+                                        </script>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+  
+    </div>
+</header>
+
+<!-- Autoinit Header -->
+<script type="text/javascript">
+        window.mdc.autoInit();
+</script>
